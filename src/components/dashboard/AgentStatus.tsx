@@ -14,7 +14,7 @@ interface Agent {
   uptime: string;
 }
 
-const BACKEND_URL = "http://localhost:8080/events";
+const BACKEND_URL = "http://localhost:8080/agents";
 
 export const AgentStatus = () => {
   const [agents, setAgents] = useState<Agent[]>([]);
@@ -25,38 +25,25 @@ export const AgentStatus = () => {
     const fetchAgents = async () => {
       try {
         const res = await fetch(BACKEND_URL);
-        if (!res.ok) throw new Error("Failed to fetch events");
+        if (!res.ok) throw new Error("Failed to fetch agents");
         const data = await res.json();
-        if (isMounted && data.events) {
-          // For MVP, infer agent info from events (simulate one agent)
-          const now = new Date();
-          const blocked = data.events.filter((e: any) => e.blocked).length;
-          setAgents([
-            {
-              id: "1",
-              name: "Demo-Agent",
-              type: "OpenAI GPT-4",
-              status: "active",
-              lastActivity: "just now",
-              threatsBlocked: blocked,
-              uptime: "99.9%"
-            }
-          ]);
+        if (isMounted && data.agents) {
+          setAgents(
+            Object.entries(data.agents).map(([id, a]: [string, any]) => ({
+              id,
+              name: id,
+              type: a.agent_type,
+              status: a.status || 'active',
+              lastActivity: a.last_activity,
+              threatsBlocked: a.threats_blocked,
+              uptime: '99.9%'
+            }))
+          );
           setError(null);
         }
       } catch (err) {
         setError("Could not connect to MCPGuard backend. Showing demo data.");
-        setAgents([
-          {
-            id: '1',
-            name: 'OpenAI-GPT4-Primary',
-            type: 'OpenAI GPT-4',
-            status: 'active',
-            lastActivity: '2 sec ago',
-            threatsBlocked: 15,
-            uptime: '99.8%'
-          }
-        ]);
+        setAgents([]);
       }
     };
     fetchAgents();

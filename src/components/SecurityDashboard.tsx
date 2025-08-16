@@ -24,6 +24,7 @@ const POLICY_URL = "http://localhost:8080/policy";
 const COMPLIANCE_CSV_URL = "http://localhost:8080/compliance/csv";
 const COMPLIANCE_PDF_URL = "http://localhost:8080/compliance/pdf";
 const INTEGRATION_URL = "http://localhost:8080/integrations";
+const COMPLIANCE_TEMPLATE_URL = "https://raw.githubusercontent.com/fkautz/safe-mcp/main/templates/SAFE-MCP-Compliance-Template.csv";
 
 function exportEventsAsCSV(events: any[]) {
   if (!events.length) return;
@@ -228,17 +229,17 @@ export const SecurityDashboard = () => {
         <Card className="bg-white hover:shadow-lg transition-shadow border-blue-200">
           <CardHeader>
             <CardTitle className="text-slate-800">Compliance Export</CardTitle>
-            <CardDescription className="text-slate-600">Export all events as CSV or PDF for audit/compliance.</CardDescription>
+            <CardDescription className="text-slate-600">Export all events as CSV or PDF for audit/compliance. Download a compliance template (GDPR, SOC2, etc.).</CardDescription>
           </CardHeader>
           <CardContent>
             <button
-              className="px-4 py-2 bg-gradient-to-r from-blue-400 to-purple-500 text-white rounded-lg hover:from-blue-500 hover:to-purple-600 mr-2 transition-all"
+              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/80 mr-2"
               onClick={() => window.open(COMPLIANCE_CSV_URL, '_blank')}
             >
               Export Events as CSV
             </button>
             <button
-              className="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-all"
+              className="px-4 py-2 bg-secondary text-black rounded hover:bg-secondary/80 mr-2"
               onClick={async () => {
                 setPdfMsg("Generating PDF (demo)...");
                 const res = await fetch(COMPLIANCE_PDF_URL);
@@ -248,6 +249,12 @@ export const SecurityDashboard = () => {
               }}
             >
               Export Events as PDF
+            </button>
+            <button
+              className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+              onClick={() => window.open(COMPLIANCE_TEMPLATE_URL, '_blank')}
+            >
+              Download Compliance Template (GDPR/SOC2)
             </button>
             {pdfMsg && <div className="text-xs text-red-500 mt-2">{pdfMsg}</div>}
           </CardContent>

@@ -1,76 +1,95 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { useEffect, useState } from "react";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+} from "chart.js";
 
-interface RealtimeChartProps {
-  data: Array<{
-    time: string;
-    threats: number;
-    blocked: number;
-    allowed: number;
-  }>;
-}
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const chartConfig = {
-  threats: {
-    label: "Threats Detected",
-    color: "hsl(var(--destructive))",
-  },
-  blocked: {
-    label: "Threats Blocked",
-    color: "hsl(var(--primary))",
-  },
-  allowed: {
-    label: "Requests Allowed",
-    color: "hsl(var(--chart-2))",
-  },
-};
+const BACKEND_URL = "http://localhost:8080/events";
 
-export const RealtimeChart = ({ data }: RealtimeChartProps) => {
+export const RealtimeChart = () => {
+  const [chartData, setChartData] = useState<any>({ labels: [], datasets: [] });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(BACKEND_URL);
+        if (!res.ok) throw new Error("Failed to fetch events");
+        const data = await res.json();
+        if (data.events) {
+          // Aggregate events by minute
+          const buckets: Record<string, { threats: number; blocked: number; allowed: number }> = {};
+          data.events.forEach((e: any) => {
+            const t = e.timestamp ? e.timestamp.slice(0, 16) : "unknown"; // YYYY-MM-DDTHH:MM
+            if (!buckets[t]) buckets[t] = { threats: 0, blocked: 0, allowed: 0 };
+            if (e.blocked) {
+              buckets[t].blocked += 1;
+              buckets[t].threats += 1;
+            } else {
+              buckets[t].allowed += 1;
+            }
+          });
+          const labels = Object.keys(buckets).sort();
+          setChartData({
+            labels,
+            datasets: [
+              {
+                label: "Threats",
+                data: labels.map(l => buckets[l].threats),
+                borderColor: "#ef4444",
+                backgroundColor: "#fee2e2",
+                tension: 0.4
+              },
+              {
+                label: "Blocked",
+                data: labels.map(l => buckets[l].blocked),
+                borderColor: "#22c55e",
+                backgroundColor: "#bbf7d0",
+                tension: 0.4
+              },
+              {
+                label: "Allowed",
+                data: labels.map(l => buckets[l].allowed),
+                borderColor: "#3b82f6",
+                backgroundColor: "#dbeafe",
+                tension: 0.4
+              }
+            ]
+          });
+        }
+      } catch {
+        setChartData({ labels: [], datasets: [] });
+      }
+    };
+    fetchData();
+    const interval = setInterval(fetchData, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <ChartContainer config={chartConfig} className="h-[300px]">
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-          <XAxis 
-            dataKey="time" 
-            className="fill-muted-foreground text-xs"
-            tick={{ fontSize: 12 }}
-          />
-          <YAxis 
-            className="fill-muted-foreground text-xs"
-            tick={{ fontSize: 12 }}
-          />
-          <ChartTooltip content={<ChartTooltipContent />} />
-          <Legend 
-            wrapperStyle={{ fontSize: '12px' }}
-            iconType="line"
-          />
-          <Line
-            type="monotone"
-            dataKey="threats"
-            stroke="var(--color-threats)"
-            strokeWidth={2}
-            dot={{ r: 4 }}
-            activeDot={{ r: 6, stroke: "var(--color-threats)", strokeWidth: 2 }}
-          />
-          <Line
-            type="monotone"
-            dataKey="blocked"
-            stroke="var(--color-blocked)"
-            strokeWidth={2}
-            dot={{ r: 4 }}
-            activeDot={{ r: 6, stroke: "var(--color-blocked)", strokeWidth: 2 }}
-          />
-          <Line
-            type="monotone"
-            dataKey="allowed"
-            stroke="var(--color-allowed)"
-            strokeWidth={2}
-            dot={{ r: 4 }}
-            activeDot={{ r: 6, stroke: "var(--color-allowed)", strokeWidth: 2 }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    </ChartContainer>
+    <div className="w-full h-64">
+      <Line
+        data={chartData}
+        options={{
+          responsive: true,
+          plugins: {
+            legend: { position: "top" as const },
+            title: { display: false, text: "Real-time Security Activity" }
+          },
+          scales: {
+            x: { title: { display: true, text: "Time (minute)" } },
+            y: { title: { display: true, text: "Count" }, beginAtZero: true }
+          }
+        }}
+      />
+    </div>
   );
 };
