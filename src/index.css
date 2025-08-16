@@ -4,42 +4,44 @@
 
 @layer base {
   :root {
-    /* Security-themed color palette */
-    --background: 220 15% 3%;
-    --foreground: 220 5% 98%;
-    --card: 220 20% 8%;
-    --card-foreground: 220 5% 95%;
-    --popover: 220 20% 8%;
-    --popover-foreground: 220 5% 95%;
-    --primary: 142 76% 36%;
-    --primary-foreground: 220 5% 98%;
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 220 5% 95%;
-    --muted: 220 15% 18%;
-    --muted-foreground: 220 5% 65%;
-    --accent: 197 100% 31%;
-    --accent-foreground: 220 5% 98%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 220 5% 98%;
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 142 76% 36%;
-    --radius: 0.5rem;
-    --chart-1: 142 76% 36%;
-    --chart-2: 197 100% 31%;
-    --chart-3: 270 95% 75%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    /* Modern Storefront Color Palette */
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+    --primary: 59 130 246;
+    --primary-foreground: 255 255 255;
+    --secondary: 241 245 249;
+    --secondary-foreground: 51 65 85;
+    --muted: 248 250 252;
+    --muted-foreground: 100 116 139;
+    --accent: 16 185 129;
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 59 130 246;
+    --radius: 0.75rem;
+    --chart-1: 59 130 246;
+    --chart-2: 16 185 129;
+    --chart-3: 168 85 247;
+    --chart-4: 251 146 60;
+    --chart-5: 239 68 68;
 
-    /* Security gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%), hsl(197 100% 31%));
-    --gradient-cyber: linear-gradient(135deg, hsl(197 100% 31%), hsl(270 95% 75%));
-    --gradient-danger: linear-gradient(135deg, hsl(0 84% 60%), hsl(27 87% 67%));
+    /* Beautiful Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(158 64% 52%));
+    --gradient-secondary: linear-gradient(135deg, hsl(217 91% 60%), hsl(262 83% 58%));
+    --gradient-accent: linear-gradient(135deg, hsl(158 64% 52%), hsl(217 91% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(158 64% 52%) 50%, hsl(262 83% 58%) 100%);
     
-    /* Cyber security shadows */
-    --shadow-cyber: 0 0 20px hsl(142 76% 36% / 0.3);
-    --shadow-threat: 0 0 20px hsl(0 84% 60% / 0.3);
-    --shadow-secure: 0 0 15px hsl(197 100% 31% / 0.2);
+    /* Modern Shadows */
+    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-large: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-colored: 0 20px 25px -5px hsl(217 91% 60% / 0.2), 0 8px 10px -6px hsl(217 91% 60% / 0.1);
   }
 
   .light {
