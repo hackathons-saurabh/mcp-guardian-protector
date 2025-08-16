@@ -153,10 +153,11 @@ export const LiveDemo = () => {
   };
 
   return (
-    <div className="space-y-6 relative">
+    <div className="space-y-6 relative min-h-screen p-6">
       {/* Beautiful Light Blue Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 rounded-2xl -z-10" />
-      <div className="absolute inset-0 bg-gradient-to-tl from-blue-100/30 via-transparent to-sky-100/40 rounded-2xl -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-sky-100 to-cyan-100 rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-tl from-blue-200/50 via-transparent to-sky-200/60 rounded-2xl" />
+      <div className="relative z-10">
       {/* Demo Controls */}
       <Card>
         <CardHeader>
@@ -328,6 +329,7 @@ export const LiveDemo = () => {
             </div>
           </CardContent>
         </Card>
+      </div>
       </div>
     </div>
   );
