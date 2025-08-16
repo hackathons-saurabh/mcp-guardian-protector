@@ -155,8 +155,8 @@ export const LiveDemo = () => {
   return (
     <div className="space-y-6 relative">
       {/* Beautiful Light Blue Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-cyan-50/30 to-sky-100/40 rounded-2xl -z-10" />
-      <div className="absolute inset-0 bg-gradient-to-tl from-blue-100/20 via-transparent to-cyan-50/30 rounded-2xl -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 rounded-2xl -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-tl from-blue-100/30 via-transparent to-sky-100/40 rounded-2xl -z-10" />
       {/* Demo Controls */}
       <Card>
         <CardHeader>
