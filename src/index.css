@@ -2,6 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* Security-themed color palette */
+    --background: 220 15% 3%;
+    --foreground: 220 5% 98%;
+    --card: 220 20% 8%;
+    --card-foreground: 220 5% 95%;
+    --popover: 220 20% 8%;
+    --popover-foreground: 220 5% 95%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 220 5% 98%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 220 5% 95%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 5% 65%;
+    --accent: 197 100% 31%;
+    --accent-foreground: 220 5% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 5% 98%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 142 76% 36%;
+    --radius: 0.5rem;
+    --chart-1: 142 76% 36%;
+    --chart-2: 197 100% 31%;
+    --chart-3: 270 95% 75%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+
+    /* Security gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%), hsl(197 100% 31%));
+    --gradient-cyber: linear-gradient(135deg, hsl(197 100% 31%), hsl(270 95% 75%));
+    --gradient-danger: linear-gradient(135deg, hsl(0 84% 60%), hsl(27 87% 67%));
+    
+    /* Cyber security shadows */
+    --shadow-cyber: 0 0 20px hsl(142 76% 36% / 0.3);
+    --shadow-threat: 0 0 20px hsl(0 84% 60% / 0.3);
+    --shadow-secure: 0 0 15px hsl(197 100% 31% / 0.2);
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 197 100% 31%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 76% 36%;
+    --chart-1: 142 76% 36%;
+    --chart-2: 197 100% 31%;
+    --chart-3: 270 95% 75%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
