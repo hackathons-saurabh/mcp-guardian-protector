@@ -15,6 +15,15 @@ export const Header = () => {
           </div>
         </div>
         
+        <nav className="flex items-center space-x-6">
+          <a href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            Home
+          </a>
+          <a href="/dashboard" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            Dashboard
+          </a>
+        </nav>
+        
         <div className="flex items-center space-x-4">
           <Button variant="outline" size="sm" asChild>
             <a href="https://github.com/saurabh-yergattikar/mcp_guard" target="_blank" rel="noopener noreferrer">
