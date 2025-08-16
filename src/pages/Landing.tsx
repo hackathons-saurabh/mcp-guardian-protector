@@ -30,25 +30,25 @@ const Landing = () => {
       icon: Shield,
       title: "Runtime Protection Layer",
       description: "One-liner library with monkey-patching for seamless threat mitigation without code changes.",
-      color: "from-blue-500 to-purple-600"
+      color: "from-blue-400 to-purple-500"
     },
     {
       icon: Eye,
       title: "Passive Proxy Monitoring", 
       description: "Always-on service that intercepts MCP/LLM calls network-wide to flag and block threats automatically.",
-      color: "from-emerald-500 to-blue-600"
+      color: "from-emerald-400 to-blue-500"
     },
     {
       icon: BarChart3,
       title: "Enterprise Dashboard Suite",
       description: "Real-time threat feeds, compliance reporting, and team-wide alerts with ROI metrics visualization.",
-      color: "from-purple-500 to-pink-600"
+      color: "from-purple-400 to-pink-500"
     },
     {
       icon: Settings,
       title: "Policy Orchestration Engine",
       description: "Adaptive rules tied to SAFE-MCP's 76 techniques with ML-driven updates from shared threat intel.",
-      color: "from-orange-500 to-red-600"
+      color: "from-orange-400 to-red-500"
     }
   ];
 
@@ -58,28 +58,28 @@ const Landing = () => {
       examples: "Amazon, Google, Microsoft",
       pricing: "$300K-500K/year",
       value: "Prevent leaks in Bedrock/Gemini agents, avoiding GDPR fines",
-      color: "from-blue-500 to-purple-600"
+      color: "from-blue-400 to-purple-500"
     },
     {
       industry: "Finance/Banking", 
       examples: "JPMorgan, Bank of America",
       pricing: "$200K-400K/year",
       value: "Secure trading/risk agents, dodging SEC penalties",
-      color: "from-emerald-500 to-teal-600"
+      color: "from-emerald-400 to-teal-500"
     },
     {
       industry: "Healthcare/Biotech",
       examples: "Pfizer, UnitedHealth", 
       pricing: "$200K-500K/year",
       value: "Safeguard diagnostic agents, complying with HIPAA",
-      color: "from-pink-500 to-purple-600"
+      color: "from-pink-400 to-purple-500"
     },
     {
       industry: "E-Commerce/Retail",
       examples: "eBay, Shopify, Walmart",
       pricing: "$100K-300K/year", 
       value: "Protect buyer bots from exfiltration, reducing fraud losses",
-      color: "from-orange-500 to-red-600"
+      color: "from-orange-400 to-red-500"
     }
   ];
 
@@ -131,17 +131,17 @@ const Landing = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/50 to-purple-50/50">
       {/* Navigation */}
       <nav className="backdrop-blur-md bg-white/80 border-b border-blue-100 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
+              <div className="p-2 rounded-xl bg-gradient-to-br from-blue-400 to-purple-500 shadow-lg">
                 <Shield className="h-8 w-8 text-white" />
               </div>
               <div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                   MCPGuard
                 </span>
                 <p className="text-sm text-slate-600">AI Agent Security Platform</p>
@@ -151,7 +151,7 @@ const Landing = () => {
               <a href="/dashboard" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Dashboard</a>
               <a href="#pricing" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Pricing</a>
               <a href="#contact" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Contact</a>
-              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg">
+              <Button className="bg-gradient-to-r from-blue-400 to-purple-500 hover:from-blue-500 hover:to-purple-600 text-white shadow-lg">
                 Get Started
               </Button>
             </div>
@@ -161,24 +161,24 @@ const Landing = () => {
 
       {/* Hero Section */}
       <section className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/5 to-emerald-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/8 via-purple-500/5 to-emerald-400/8" />
         <div className="container mx-auto text-center relative z-10">
-          <Badge className="mb-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white border-0 px-4 py-2">
+          <Badge className="mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-white border-0 px-4 py-2">
             <Sparkles className="h-4 w-4 mr-2" />
             Enterprise-Grade AI Security Platform
           </Badge>
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-600 to-purple-600 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-slate-700 via-blue-500 to-purple-500 bg-clip-text text-transparent leading-tight">
             Secure Every Agent,<br />Every Call, Everywhere
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-8 leading-relaxed">
-            The definitive zero-trust security platform for MCP-based AI agents. One-liner protection that evolves into comprehensive runtime shield, preventing breaches and ensuring compliance <span className="font-semibold text-blue-600">without a single line of effort</span>.
+            The definitive zero-trust security platform for MCP-based AI agents. One-liner protection that evolves into comprehensive runtime shield, preventing breaches and ensuring compliance <span className="font-semibold text-blue-500">without a single line of effort</span>.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
-            <Button size="lg" className="text-lg px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transition-all transform hover:scale-105">
+            <Button size="lg" className="text-lg px-8 py-4 bg-gradient-to-r from-blue-400 to-purple-500 hover:from-blue-500 hover:to-purple-600 text-white shadow-xl hover:shadow-2xl transition-all transform hover:scale-105">
               <Rocket className="mr-2 h-5 w-5" />
               Start Free Trial
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-2 border-blue-300 text-blue-600 hover:bg-blue-50">
+            <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-2 border-blue-300 text-blue-500 hover:bg-blue-50">
               <Github className="mr-2 h-5 w-5" />
               View on GitHub
             </Button>
@@ -188,19 +188,19 @@ const Landing = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <Card className="bg-white/70 backdrop-blur-sm border-blue-200 hover:shadow-lg transition-all transform hover:scale-105">
               <CardContent className="p-6 text-center">
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">$207.9B</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-2">$207.9B</div>
                 <p className="text-sm text-slate-600 font-medium">AI Agent Market by 2030</p>
               </CardContent>
             </Card>
             <Card className="bg-white/70 backdrop-blur-sm border-emerald-200 hover:shadow-lg transition-all transform hover:scale-105">
               <CardContent className="p-6 text-center">
-                <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent mb-2">30%</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent mb-2">30%</div>
                 <p className="text-sm text-slate-600 font-medium">AI Breaches from Prompt Injection</p>
               </CardContent>
             </Card>
             <Card className="bg-white/70 backdrop-blur-sm border-red-200 hover:shadow-lg transition-all transform hover:scale-105">
               <CardContent className="p-6 text-center">
-                <div className="text-4xl font-bold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent mb-2">$4.5M</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent mb-2">$4.5M</div>
                 <p className="text-sm text-slate-600 font-medium">Average Cost per Data Leak</p>
               </CardContent>
             </Card>
@@ -386,7 +386,7 @@ const Landing = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-500 relative overflow-hidden">
+      <section className="py-20 px-4 bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10" />
         <div className="container mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
@@ -396,7 +396,7 @@ const Landing = () => {
             Join the leading enterprises who trust MCPGuard to protect their AI infrastructure. Start with a free trial today.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Button size="lg" className="text-lg px-8 py-4 bg-white text-blue-600 hover:bg-slate-50 shadow-xl hover:shadow-2xl transform hover:scale-105">
+            <Button size="lg" className="text-lg px-8 py-4 bg-white text-blue-500 hover:bg-slate-50 shadow-xl hover:shadow-2xl transform hover:scale-105">
               <Target className="mr-2 h-5 w-5" />
               Start Free Trial
             </Button>
@@ -412,7 +412,7 @@ const Landing = () => {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600">
+              <div className="p-2 rounded-xl bg-gradient-to-br from-blue-400 to-purple-500">
                 <Shield className="h-6 w-6 text-white" />
               </div>
               <div>
