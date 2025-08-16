@@ -130,49 +130,57 @@ export const SecurityDashboard = () => {
     <div className="space-y-6">
       {/* Top Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="border-l-4 border-l-primary">
+        <Card className="border-l-4 border-l-blue-400 hover:shadow-lg transition-shadow bg-white">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Protected Agents</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium text-slate-700">Protected Agents</CardTitle>
+            <div className="p-2 rounded-lg bg-blue-100">
+              <Users className="h-4 w-4 text-blue-500" />
+            </div>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{stats.totalAgents}</div>
-            <p className="text-xs text-muted-foreground">
-              <span className="text-green-500">+2</span> since last hour
+            <div className="text-2xl font-bold text-slate-800">{stats.totalAgents}</div>
+            <p className="text-xs text-slate-600">
+              <span className="text-emerald-500 font-medium">+2</span> since last hour
             </p>
           </CardContent>
         </Card>
 
-        <Card className="border-l-4 border-l-destructive">
+        <Card className="border-l-4 border-l-red-400 hover:shadow-lg transition-shadow bg-white">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Active Threats</CardTitle>
-            <AlertTriangle className="h-4 w-4 text-destructive" />
+            <CardTitle className="text-sm font-medium text-slate-700">Active Threats</CardTitle>
+            <div className="p-2 rounded-lg bg-red-100">
+              <AlertTriangle className="h-4 w-4 text-red-500" />
+            </div>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-destructive">{stats.activeThreats}</div>
-            <p className="text-xs text-muted-foreground">
-              <span className="text-red-500">High priority</span> incidents
+            <div className="text-2xl font-bold text-red-500">{stats.activeThreats}</div>
+            <p className="text-xs text-slate-600">
+              <span className="text-red-500 font-medium">High priority</span> incidents
             </p>
           </CardContent>
         </Card>
 
-        <Card className="border-l-4 border-l-green-500">
+        <Card className="border-l-4 border-l-emerald-400 hover:shadow-lg transition-shadow bg-white">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Blocked Attacks</CardTitle>
-            <Shield className="h-4 w-4 text-green-500" />
+            <CardTitle className="text-sm font-medium text-slate-700">Blocked Attacks</CardTitle>
+            <div className="p-2 rounded-lg bg-emerald-100">
+              <Shield className="h-4 w-4 text-emerald-500" />
+            </div>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-green-500">{stats.blockedAttacks}</div>
-            <p className="text-xs text-muted-foreground">
-              <span className="text-green-500">+15</span> in last 24h
+            <div className="text-2xl font-bold text-emerald-500">{stats.blockedAttacks}</div>
+            <p className="text-xs text-slate-600">
+              <span className="text-emerald-500 font-medium">+15</span> in last 24h
             </p>
           </CardContent>
         </Card>
 
-        <Card className="border-l-4 border-l-blue-500">
+        <Card className="border-l-4 border-l-blue-400 hover:shadow-lg transition-shadow bg-white">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">System Uptime</CardTitle>
-            <Activity className="h-4 w-4 text-blue-500" />
+            <CardTitle className="text-sm font-medium text-slate-700">System Uptime</CardTitle>
+            <div className="p-2 rounded-lg bg-blue-100">
+              <Activity className="h-4 w-4 text-blue-500" />
+            </div>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-blue-500">{stats.uptime}%</div>
@@ -185,13 +193,15 @@ export const SecurityDashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Real-time Activity Chart */}
         <div className="lg:col-span-2">
-          <Card>
+          <Card className="bg-white hover:shadow-lg transition-shadow border-blue-200">
             <CardHeader>
-              <CardTitle className="flex items-center">
-                <TrendingUp className="h-5 w-5 mr-2" />
+              <CardTitle className="flex items-center text-slate-800">
+                <div className="p-2 rounded-lg bg-gradient-to-br from-blue-400 to-purple-500 mr-3">
+                  <TrendingUp className="h-5 w-5 text-white" />
+                </div>
                 Real-time Security Activity
               </CardTitle>
-              <CardDescription>Live monitoring of threats and protections</CardDescription>
+              <CardDescription className="text-slate-600">Live monitoring of threats and protections</CardDescription>
             </CardHeader>
             <CardContent>
               <RealtimeChart data={realtimeData} />
@@ -215,20 +225,20 @@ export const SecurityDashboard = () => {
       </div>
       {/* Compliance Export & Policy Editor */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
+        <Card className="bg-white hover:shadow-lg transition-shadow border-blue-200">
           <CardHeader>
-            <CardTitle>Compliance Export</CardTitle>
-            <CardDescription>Export all events as CSV or PDF for audit/compliance.</CardDescription>
+            <CardTitle className="text-slate-800">Compliance Export</CardTitle>
+            <CardDescription className="text-slate-600">Export all events as CSV or PDF for audit/compliance.</CardDescription>
           </CardHeader>
           <CardContent>
             <button
-              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/80 mr-2"
+              className="px-4 py-2 bg-gradient-to-r from-blue-400 to-purple-500 text-white rounded-lg hover:from-blue-500 hover:to-purple-600 mr-2 transition-all"
               onClick={() => window.open(COMPLIANCE_CSV_URL, '_blank')}
             >
               Export Events as CSV
             </button>
             <button
-              className="px-4 py-2 bg-secondary text-black rounded hover:bg-secondary/80"
+              className="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-all"
               onClick={async () => {
                 setPdfMsg("Generating PDF (demo)...");
                 const res = await fetch(COMPLIANCE_PDF_URL);
@@ -242,42 +252,42 @@ export const SecurityDashboard = () => {
             {pdfMsg && <div className="text-xs text-red-500 mt-2">{pdfMsg}</div>}
           </CardContent>
         </Card>
-        <Card>
+        <Card className="bg-white hover:shadow-lg transition-shadow border-purple-200">
           <CardHeader>
-            <CardTitle>Policy Editor (Stub)</CardTitle>
-            <CardDescription>Upload a JSON policy file (not yet enforced).</CardDescription>
+            <CardTitle className="text-slate-800">Policy Editor (Stub)</CardTitle>
+            <CardDescription className="text-slate-600">Upload a JSON policy file (not yet enforced).</CardDescription>
           </CardHeader>
           <CardContent>
-            <input type="file" accept="application/json" onChange={handlePolicyUpload} />
+            <input type="file" accept="application/json" onChange={handlePolicyUpload} className="mb-2" />
             <textarea
-              className="w-full mt-2 p-2 border rounded"
+              className="w-full mt-2 p-3 border border-slate-200 rounded-lg focus:border-blue-400 focus:ring-2 focus:ring-blue-200 transition-all"
               rows={8}
               value={policy}
               onChange={e => setPolicy(e.target.value)}
             />
-            {policyMsg && <div className="text-xs text-green-600 mt-2">{policyMsg}</div>}
+            {policyMsg && <div className="text-xs text-emerald-600 mt-2 font-medium">{policyMsg}</div>}
           </CardContent>
         </Card>
-        <Card>
+        <Card className="bg-white hover:shadow-lg transition-shadow border-emerald-200">
           <CardHeader>
-            <CardTitle>Integrations</CardTitle>
-            <CardDescription>Send alerts to Slack, Infobip, etc. via webhook.</CardDescription>
+            <CardTitle className="text-slate-800">Integrations</CardTitle>
+            <CardDescription className="text-slate-600">Send alerts to Slack, Infobip, etc. via webhook.</CardDescription>
           </CardHeader>
           <CardContent>
             <input
               type="text"
-              className="w-full p-2 border rounded mb-2"
+              className="w-full p-3 border border-slate-200 rounded-lg mb-3 focus:border-blue-400 focus:ring-2 focus:ring-blue-200 transition-all"
               placeholder="Webhook URL (Slack, Infobip, etc.)"
               value={webhookUrl}
               onChange={e => setWebhookUrl(e.target.value)}
             />
             <button
-              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/80"
+              className="px-4 py-2 bg-gradient-to-r from-emerald-400 to-blue-500 text-white rounded-lg hover:from-emerald-500 hover:to-blue-600 transition-all"
               onClick={handleWebhookSave}
             >
               Save Webhook
             </button>
-            {webhookMsg && <div className="text-xs text-green-600 mt-2">{webhookMsg}</div>}
+            {webhookMsg && <div className="text-xs text-emerald-600 mt-2 font-medium">{webhookMsg}</div>}
           </CardContent>
         </Card>
       </div>

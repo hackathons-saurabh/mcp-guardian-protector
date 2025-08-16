@@ -155,17 +155,19 @@ export const LiveDemo = () => {
   return (
     <div className="space-y-6 relative min-h-screen p-6">
       {/* Beautiful Light Blue Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-sky-100 to-cyan-100 rounded-2xl" />
-      <div className="absolute inset-0 bg-gradient-to-tl from-blue-200/50 via-transparent to-sky-200/60 rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/70 via-sky-100/50 to-cyan-100/60 rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-tl from-blue-200/40 via-transparent to-sky-200/50 rounded-2xl" />
       <div className="relative z-10">
       {/* Demo Controls */}
-      <Card>
+      <Card className="bg-white/90 backdrop-blur-sm border-blue-200 hover:shadow-lg transition-shadow">
         <CardHeader>
-          <CardTitle className="flex items-center">
-            <Bot className="h-5 w-5 mr-2" />
+          <CardTitle className="flex items-center text-slate-800">
+            <div className="p-2 rounded-lg bg-gradient-to-br from-blue-400 to-purple-500 mr-3">
+              <Bot className="h-5 w-5 text-white" />
+            </div>
             Live Security Demonstration
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-slate-600">
             See MCPGuard in action - compare vulnerable vs protected AI agents
           </CardDescription>
         </CardHeader>

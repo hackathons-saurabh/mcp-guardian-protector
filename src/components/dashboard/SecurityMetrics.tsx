@@ -41,10 +41,10 @@ export const SecurityMetrics = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'excellent': return 'text-green-500';
+      case 'excellent': return 'text-emerald-500';
       case 'good': return 'text-blue-500';
-      case 'warning': return 'text-orange-500';
-      default: return 'text-muted-foreground';
+      case 'warning': return 'text-orange-400';
+      default: return 'text-slate-600';
     }
   };
 
